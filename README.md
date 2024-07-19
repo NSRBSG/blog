@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 문서 작성법
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```text
+└── docs
+    └── [slug]
+        ├── [language]
+        │   └── article.md
+        └── metadata.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### [slug]
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 문서를 나타내는 [slug] 는 Kebab case 를 사용해요. (example : my-first-article)
+- 문서는 여러개 있을 수 있어요.
+- 문서에는 [language] 폴더와 metadata.ts 파일이 있어요.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### [language]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 문서의 언어를 나타내는 [language] 는 국가별 언어 코드를 사용해요. (example : ko)
+- 언어는 여러개 있을 수 있어요.
+- 언어에는 article.md 파일이 있어요.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### metadata.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 문서에서 모든 언어를 통틀어 관리하는 데이터를 의미해요.
+- `lib/article-manager.ts` 에서 Metadata를 확인할 수 있어요.
+- 현재 Metadata Interface 와, metadata.ts 는 아래와 같아요.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```ts
+type Category = 'hobby' | 'study' | 'work';
+
+interface Metadata {
+  date: Date;
+  category: Category;
+}
+```
+
+```ts
+import { Metadata } from '@/lib/article-manager';
+
+export const metadata: Metadata = {
+  date: new Date('2024-07-19T01:51:44.224Z'),
+  category: 'hobby',
+};
+```
+
+---
+
+### article.md
+
+- 문서 내용이 포함된 파일을 의미해요.
+- 최상단에는 해당 언어 문서의 Metadata 가 포함되어 있어요.
+- 예시 내부 구조는 아래와 같아요.
+
+```md
+---
+title: 'example title'
+description: 'example description'
+keywords: ['example', '...']
+---
+
+content
+```
+
+---

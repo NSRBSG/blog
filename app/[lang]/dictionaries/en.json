@@ -1,0 +1,10 @@
+{
+  "i18n": "English",
+  "metadata": {
+    "title": "NSRBSG Blog",
+    "description": "Nonsense",
+    "keywords": ["NSRBSG", "blog", "programming", "web", "development"]
+  },
+  "previous": "Previous",
+  "next": "Next"
+}
