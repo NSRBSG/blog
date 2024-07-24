@@ -86,7 +86,7 @@ export default async function Page({
       <main className='flex flex-col flex-1'>
         <div className='flex flex-col flex-1 items-center mx-2 mb-16'>
           <article className='flex flex-col w-full max-w-[652px] items-center'>
-            <div className='flex flex-col w-full py-6 border-b border-black'>
+            <div className='flex flex-col w-full py-6 border-b'>
               <h2 className='text-2xl md:text-3xl font-bold mb-2'>
                 {article.title}
               </h2>
@@ -101,7 +101,7 @@ export default async function Page({
             </div>
             <div className='my-6'>
               <div
-                className='prose prose-sm md:prose-lg'
+                className='prose dark:prose-invert prose-sm md:prose-lg'
                 dangerouslySetInnerHTML={{
                   __html: marked.parse(article.content),
                 }}

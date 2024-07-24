@@ -11,7 +11,7 @@ export default function Card(props: CardProps) {
 
   return (
     <Link
-      className='flex flex-col w-full max-w-[652px] py-6 border-b border-black'
+      className='flex flex-col w-full max-w-[652px] py-6 border-b'
       {...rest}
     >
       <h2 className='text-2xl md:text-3xl font-bold mb-2'>{props.title}</h2>

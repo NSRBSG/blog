@@ -12,12 +12,18 @@ export default function Header({
   slug?: string;
 }) {
   return (
-    <header className='p-4 flex justify-between border-b border-black'>
+    <header className='p-4 flex justify-between border-b'>
       <Link
         className='text-2xl font-bold'
         href={language ? `/${language}` : '/'}
       >
-        <Image src='/logo.png' alt='logo' width={125} height={35} />
+        <Image
+          src='/logo.png'
+          alt='logo'
+          className='dark:invert'
+          width={125}
+          height={35}
+        />
       </Link>
       <nav className='flex items-center gap-2'>
         {language &&
@@ -29,7 +35,7 @@ export default function Header({
                   <>
                     {index > 0 && <span>|</span>}
                     <Link
-                      className={language === locale ? 'text-blue-700' : ''}
+                      className={language === locale ? 'accent' : ''}
                       key={locale}
                       href={`/${locale}/${slug}`}
                     >
@@ -44,7 +50,7 @@ export default function Header({
                   <>
                     {index > 0 && <span>|</span>}
                     <Link
-                      className={language === locale ? 'text-blue-700' : ''}
+                      className={language === locale ? 'accent' : ''}
                       key={locale}
                       href={`/${locale}`}
                     >

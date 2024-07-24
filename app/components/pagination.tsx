@@ -25,7 +25,7 @@ export default function Pagination({
               ? maxPage - maxShowPage
               : currentPage - Math.ceil(maxShowPage / 2)
           }`}
-          className='px-2 border border-black'
+          className='px-2 border'
         >
           {leftText}
         </Link>
@@ -47,9 +47,7 @@ export default function Pagination({
           <Link
             key={page}
             href={`?page=${page}`}
-            className={`px-2 border border-black ${
-              page === currentPage ? 'bg-black text-white' : ''
-            }`}
+            className={`px-2 border ${page === currentPage ? 'accent' : ''}`}
           >
             {page}
           </Link>
@@ -62,7 +60,7 @@ export default function Pagination({
               ? maxShowPage + 1
               : currentPage + Math.ceil(maxShowPage / 2)
           }`}
-          className='px-2 border border-black'
+          className='px-2 border'
         >
           {rightText}
         </Link>
