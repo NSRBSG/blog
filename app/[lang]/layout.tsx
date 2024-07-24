@@ -1,5 +1,5 @@
 import Footer from '@/app/components/footer';
-import { Metadata, Viewport } from 'next';
+import { Metadata } from 'next';
 import { locales, Locales } from '@/lib/i18n';
 
 import { Inter } from 'next/font/google';
@@ -8,10 +8,6 @@ import { getDictionary } from '@/app/[lang]/dictionaries';
 import { BASE_URL } from '@/lib/constants';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export const viewport: Viewport = {
-  themeColor: 'rgb(255, 255, 255)',
-};
 
 export async function generateMetadata({
   params: { lang },
