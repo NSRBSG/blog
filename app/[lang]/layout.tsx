@@ -80,6 +80,10 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
 export default async function RootLayout({
   params: { lang },
   children,

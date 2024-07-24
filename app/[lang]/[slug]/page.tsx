@@ -62,6 +62,13 @@ export async function generateMetadata({
   };
 }
 
+export function generateStaticParams() {
+  return ArticleManager.getArticleFolderNames().flatMap((articleSlug) => {
+    const locales = ArticleManager.getSupportedLanguages(articleSlug);
+    return locales.map((locale) => ({ lang: locale, slug: articleSlug }));
+  });
+}
+
 export default async function Page({
   params: { lang, slug },
 }: {
