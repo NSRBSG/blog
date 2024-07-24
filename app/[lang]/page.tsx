@@ -1,12 +1,20 @@
 import Card from '@/app/components/card';
 import { ArticleManager, ArticleMetadata } from '@/lib/article-manager';
-import { Locales } from '@/lib/i18n';
+import { locales, Locales } from '@/lib/i18n';
 import Header from '@/app/components/header';
 import Pagination from '@/app/components/pagination';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { redirect } from 'next/navigation';
 
-function getArticles(lang: Locales, articlesPerPage: number, page: number) {
+export async function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
+async function getArticles(
+  lang: Locales,
+  articlesPerPage: number,
+  page: number
+) {
   const articleManager = new ArticleManager(lang);
   return articleManager.getArticleList(articlesPerPage, page);
 }
@@ -22,7 +30,7 @@ export default async function Page({
   if (!dictionary) return redirect('/');
 
   const articlesPerPage = 10;
-  const { articles, totalArticleCount } = getArticles(
+  const { articles, totalArticleCount } = await getArticles(
     lang,
     articlesPerPage,
     Number(page ?? 1)

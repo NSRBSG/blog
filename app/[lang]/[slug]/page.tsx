@@ -62,13 +62,24 @@ export async function generateMetadata({
   };
 }
 
+export function generateStaticParams() {
+  return ArticleManager.getArticleFolderNames().flatMap((articleSlug) => {
+    const locales = ArticleManager.getSupportedLanguages(articleSlug);
+    return locales.map((locale) => ({ lang: locale, slug: articleSlug }));
+  });
+}
+
+async function getArticle(lang: Locales, slug: string) {
+  const articleManager = new ArticleManager(lang);
+  return articleManager.getArticle(slug);
+}
+
 export default async function Page({
   params: { lang, slug },
 }: {
   params: { lang: Locales; slug: string };
 }) {
-  const articleManager = new ArticleManager(lang);
-  const article = articleManager.getArticle(slug);
+  const article = await getArticle(lang, slug);
 
   if (!article) redirect(`/${lang}`);
 
