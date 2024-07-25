@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  publicRuntimeConfig: {
-    path: 'public',
+  output: 'standalone',
+  experimental: {
+    turbotrace: {},
   },
 };
 

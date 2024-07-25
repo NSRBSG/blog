@@ -2,7 +2,6 @@ import { locales, Locales } from '@/lib/i18n';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import getConfig from 'next/config';
 
 type Category = 'hobby' | 'study' | 'work';
 
@@ -29,9 +28,7 @@ export class ArticleManager {
   }
 
   static getSupportedLanguages(slug: string) {
-    const supportedLanguages = fs.readdirSync(
-      path.join(getConfig().publicRuntimeConfig.path ?? '', 'docs', slug)
-    );
+    const supportedLanguages = fs.readdirSync(path.join('docs', slug));
     const filteredLanguages = locales.filter((locale) =>
       supportedLanguages.includes(locale)
     );
@@ -39,15 +36,13 @@ export class ArticleManager {
   }
 
   static getArticleFolderNames() {
-    return fs.readdirSync(
-      path.join(getConfig().publicRuntimeConfig.path ?? '', 'docs')
-    );
+    return fs.readdirSync(path.join('docs'));
   }
 
   static getArticleMetadata(slug: string) {
     const {
       metadata,
-    }: { metadata: Metadata } = require(`@/public/docs/${slug}/metadata.ts`);
+    }: { metadata: Metadata } = require(`@/docs/${slug}/metadata.ts`);
     return metadata;
   }
 
@@ -56,13 +51,7 @@ export class ArticleManager {
 
     const localeArticleNames = articleFolderNames.filter(
       (articleFolderName) => {
-        const locales = fs.readdirSync(
-          path.join(
-            getConfig().publicRuntimeConfig.path ?? '',
-            'docs',
-            articleFolderName
-          )
-        );
+        const locales = fs.readdirSync(path.join('docs', articleFolderName));
         return locales.includes(this.locale);
       }
     );
@@ -82,13 +71,7 @@ export class ArticleManager {
       .map((metadata) => {
         const { slug } = metadata;
         const markdown = fs.readFileSync(
-          path.join(
-            getConfig().publicRuntimeConfig.path ?? '',
-            'docs',
-            slug,
-            this.locale,
-            'article.md'
-          ),
+          path.join('docs', slug, this.locale, 'article.md'),
           'utf-8'
         );
         const { data } = matter(markdown);
@@ -106,13 +89,7 @@ export class ArticleManager {
     try {
       const metadata = ArticleManager.getArticleMetadata(slug);
       const markdown = fs.readFileSync(
-        path.join(
-          getConfig().publicRuntimeConfig.path ?? '',
-          'docs',
-          slug,
-          this.locale,
-          'article.md'
-        ),
+        path.join('docs', slug, this.locale, 'article.md'),
         'utf-8'
       );
 
