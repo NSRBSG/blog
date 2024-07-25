@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
