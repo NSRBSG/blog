@@ -1,15 +1,4 @@
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'standalone',
-  experimental: {
-    outputFileTracingRoot: join(
-      dirname(fileURLToPath(import.meta.url)),
-      '../../'
-    ),
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
