@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: locales.map((locale) => `/${locale}/`),
-      disallow: ['/', '/api/'],
+      disallow: ['/api/'],
     },
     sitemap: Array.from({ length: totalSitemaps }).map(
       (_, id) => `${BASE_URL}/sitemap/${id}.xml`
