@@ -17,6 +17,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@formatjs/intl-localematcher": "^0.6.1",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/negotiator": "^0.6.4",
     "@types/node": "^20",
