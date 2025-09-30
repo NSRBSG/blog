@@ -26,15 +26,17 @@ export default async function Page({
 
   return (
     <>
-      <p>총 게시물 수: {totalPostsCount}개</p>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </li>
-        ))}
-      </ul>
+      <div className='mt-32'>
+        <p>총 게시물 수: {totalPostsCount}개</p>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <h2>{post.title}</h2>
+              <p>{post.content}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
