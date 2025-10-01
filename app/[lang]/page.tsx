@@ -10,10 +10,10 @@ export default async function Page({
   params,
   searchParams,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
   searchParams: Promise<{ page?: string }>;
 }) {
-  const { lang } = await params;
+  const { lang } = (await params) as { lang: Locale };
   const { page } = await searchParams;
 
   const dictionary = await getDictionary(lang);
