@@ -19,17 +19,17 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   params,
   children,
-}: Readonly<{
-  params: Promise<{ lang: Locale }>;
+}: {
+  params: Promise<{ lang: string }>;
   children: React.ReactNode;
-}>) {
+}) {
   const { lang } = await params;
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={nanumGothic.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='flex flex-col flex-1'>
-            <Header lang={lang} />
+            <Header lang={lang as Locale} />
             {children}
             <Footer />
           </div>
