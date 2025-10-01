@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Locale } from '../i18n/config';
+import { PostMetadata } from './config';
 
 function getPostNames() {
   return fs.readdirSync(path.join(process.cwd(), 'docs'));
@@ -20,7 +21,7 @@ function extractPostMetadata(name: string, locale: Locale) {
     'utf-8'
   );
   const { data } = matter(file);
-  return data;
+  return data as PostMetadata;
 }
 
 export function getPosts(postsPerPage: number, page: number, locale: Locale) {
