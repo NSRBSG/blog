@@ -4,7 +4,7 @@
 └── docs
     └── [slug]
         └── [language]
-            └── article.md
+            └── post.md
 ```
 
 ---
