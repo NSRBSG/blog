@@ -1,5 +1,6 @@
 ---
 id: 1
+slug: 'test-slug'
 title: 'test en'
 description: 'test description'
 categories: ['study', 'frontend']
