@@ -3,6 +3,12 @@ import path from 'path';
 import matter from 'gray-matter';
 import { Locale } from '../i18n/config';
 import { PostMetadata } from './config';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 function getPostNames() {
   return fs.readdirSync(path.join(process.cwd(), 'docs'));
@@ -21,7 +27,7 @@ function extractPostMetadata(name: string, locale: Locale) {
     'utf-8'
   );
   const { data } = matter(file);
-  return data as PostMetadata;
+  return { ...data, slug: name } as PostMetadata;
 }
 
 export function getPosts(postsPerPage: number, page: number, locale: Locale) {
@@ -34,4 +40,30 @@ export function getPosts(postsPerPage: number, page: number, locale: Locale) {
     .slice((page - 1) * postsPerPage, page * postsPerPage);
 
   return { posts: localePosts, totalPostsCount: totalLocalePostsCount };
+}
+
+export function getPostMarkdown(slug: string, locale: Locale) {
+  try {
+    const file = fs.readFileSync(
+      path.join(process.cwd(), 'docs', slug, locale, 'post.md'),
+      'utf-8'
+    );
+    const { data, content } = matter(file);
+    return { data, content } as { data: PostMetadata; content: string };
+  } catch {
+    return null;
+  }
+}
+
+export async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      theme: 'dracula',
+    })
+    .use(rehypeStringify)
+    .process(markdown);
+  return String(result);
 }
