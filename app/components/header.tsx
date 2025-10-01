@@ -11,7 +11,7 @@ export default function Header({
   lang: Locale;
 }>) {
   return (
-    <header className='fixed left-0 top-0 right-0 shadow-sm backdrop-blur-lg'>
+    <header className='fixed left-0 top-0 right-0 shadow-sm backdrop-blur-lg z-10'>
       <div className='mx-auto flex w-full items-center justify-between px-5 py-4 md:max-w-[43.125rem] xl:max-w-[80rem]'>
         <Link href={`/${lang}`} className='hover:scale-102 duration-100'>
           <LogoIcon className='h-[1.125rem] md:h-[1.5rem] dark:stroke-white dark:fill-white' />
