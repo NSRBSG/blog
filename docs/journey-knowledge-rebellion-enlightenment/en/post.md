@@ -3,8 +3,8 @@ id: 1
 title: 'Journey of Knowledge: From Rebellion to Enlightenment'
 description: 'A personal growth story of how I, who was skeptical and rebellious from a young age, came to realize the importance of systematic learning through games and computers. Recognizing the value of knowledge sharing and making a commitment to leave a legacy through blogging.'
 categories: ['hobby']
-tags: ['study', 'game', 'computer', 'knowledge', 'starting a blog']
-date: '2025-09-29T05:40:13.586Z'
+tags: ['Study', 'Game', 'Computer', 'Knowledge', 'Starting a Blog']
+date: '2024-07-22T05:42:18.530Z'
 thumbnailUrl: /images/crazy-to-study.jpg
 ---
 
