@@ -4,6 +4,7 @@ import { Locale } from '@/lib/i18n/config';
 import Header from '../components/header';
 import '../globals.css';
 import { ThemeProvider } from '../components/theme-provider';
+import Footer from '../components/footer';
 
 const nanumGothic = Nanum_Gothic({
   subsets: ['latin'],
@@ -27,8 +28,11 @@ export default async function RootLayout({
     <html lang={lang} suppressHydrationWarning>
       <body className={nanumGothic.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <Header lang={lang} />
-          {children}
+          <div className='flex flex-col flex-1'>
+            <Header lang={lang} />
+            {children}
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

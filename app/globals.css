@@ -1,3 +1,9 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
