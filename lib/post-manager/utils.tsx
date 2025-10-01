@@ -62,6 +62,10 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     .use(remarkRehype)
     .use(rehypePrettyCode, {
       theme: 'dracula',
+      bypassInlineCode: false,
+      defaultLang: {
+        inline: 'token',
+      },
     })
     .use(rehypeStringify)
     .process(markdown);

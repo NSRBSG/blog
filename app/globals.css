@@ -12,3 +12,12 @@ body {
   background-color: #100f14;
   color: white;
 }
+
+code[data-language='token'] {
+  @apply text-sm! bg-gray-800! px-2! py-1! rounded-full! text-white! font-mono! font-medium! dark:bg-slate-800!;
+}
+
+code::before,
+code::after {
+  content: '';
+}
