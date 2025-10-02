@@ -1,3 +1,6 @@
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import type { Metadata } from 'next';
 import { Nanum_Gothic } from 'next/font/google';
 import { Locale } from '@/lib/i18n/config';
@@ -34,6 +37,8 @@ export default async function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
