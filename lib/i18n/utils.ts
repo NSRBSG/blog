@@ -18,5 +18,14 @@ export function getLocale(request: NextRequest) {
 
   const negotiator = new Negotiator({ headers });
   const languages = negotiator.languages();
-  return match(languages, locales, defaultLocale);
+
+  let locale = '';
+
+  try {
+    locale = match(languages, locales, defaultLocale);
+  } catch {
+    locale = defaultLocale;
+  }
+
+  return locale;
 }
