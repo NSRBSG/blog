@@ -71,3 +71,15 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     .process(markdown);
   return String(result);
 }
+
+export function getAllPostForSitemap() {
+  const postNames = getPostNames();
+
+  const allPosts = postNames.map((name) => {
+    const locales = fs.readdirSync(path.join(process.cwd(), 'docs', name));
+
+    return { [name]: locales };
+  });
+
+  return allPosts;
+}
