@@ -10,10 +10,10 @@ export default async function Page({
   params,
   searchParams,
 }: {
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: Locale }>;
   searchParams: Promise<{ page?: string }>;
 }) {
-  const { lang } = (await params) as { lang: Locale };
+  const { lang } = await params;
   const { page } = await searchParams;
 
   const dictionary = await getDictionary(lang);
@@ -27,19 +27,17 @@ export default async function Page({
   );
 
   return (
-    <>
-      <div className='flex flex-col flex-1 items-center mx-auto w-full px-[1.125rem] md:max-w-[43.125rem] md:px-[2.4375rem] xl:max-w-[67rem]'>
-        <ul className='flex flex-col flex-1 gap-16 md:gap-[6rem] w-full py-48'>
-          {posts.map((post) => (
-            <Card key={post.id} post={post} lang={lang} />
-          ))}
-        </ul>
-        <Pagination
-          currentPage={Number(page ?? 1)}
-          postsPerPage={postsPerPage}
-          totalPostsCount={totalPostsCount}
-        />
-      </div>
-    </>
+    <div className='flex flex-col flex-1 items-center mx-auto w-full px-[1.125rem] md:max-w-[43.125rem] md:px-[2.4375rem] xl:max-w-[67rem]'>
+      <ul className='flex flex-col flex-1 gap-16 md:gap-[6rem] w-full py-48'>
+        {posts.map((post) => (
+          <Card key={post.id} post={post} lang={lang} />
+        ))}
+      </ul>
+      <Pagination
+        currentPage={Number(page ?? 1)}
+        postsPerPage={postsPerPage}
+        totalPostsCount={totalPostsCount}
+      />
+    </div>
   );
 }
