@@ -1,1 +1,6 @@
-export { getPosts } from './utils';
+export {
+  getPosts,
+  getPostMarkdown,
+  markdownToHtml,
+  getAllPostForSitemap,
+} from './utils';

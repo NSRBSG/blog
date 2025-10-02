@@ -5,9 +5,9 @@ import { redirect } from 'next/navigation';
 export default async function Page({
   params,
 }: {
-  params: Promise<{ lang: string; slug: string }>;
+  params: Promise<{ lang: Locale; slug: string }>;
 }) {
-  const { lang, slug } = (await params) as { lang: Locale; slug: string };
+  const { lang, slug } = await params;
 
   const post = getPostMarkdown(slug, lang);
 
