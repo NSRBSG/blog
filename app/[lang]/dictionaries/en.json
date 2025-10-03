@@ -1,1 +1,24 @@
-{}
+{
+  "metadata": {
+    "title": "NSRBSG Developer Blog",
+    "description": "A technical blog by NSRBSG. Sharing knowledge and experiences about web development.",
+    "keywords": [
+      "developer blog",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "web development",
+      "frontend",
+      "backend",
+      "fullstack",
+      "programming",
+      "coding",
+      "developer",
+      "tech blog",
+      "NSRBSG"
+    ],
+    "author": "NSRBSG",
+    "siteName": "NSRBSG Developer Blog"
+  }
+}
