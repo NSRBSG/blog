@@ -1,0 +1,50 @@
+ 1195863 - Merge branch 'develop' of https://github.com/Team-six-sense/On-Race into feat/backend/auth-module-setup
+ f91295e - feat(backend): Auth 모듈 실행 설정 및 Gateway 라우팅 추가
+ a12431d - refactor: consolidate JWT modules to common and fix Gateway dependencies
+ 3239078 - chore(backend): 빌드 스크립트 및 설정 구조 리팩토링
+ e9507a3 - security(backend): JWT 토큰 보안 취약점 및 Rate Limit NPE 수정
+ fe4f7d5 - security(backend): Gateway X-User-Id 헤더 스푸핑 방지
+ a9b9402 - refactor(backend): 불필요한 코드 및 테스트 설정 제거
+ 7f99105 - refactor(backend): main에서 auth 의존성 제거 및 Gateway 헤더 방식 전환
+ 771921d - refactor(backend): main에서 auth 모듈 분리
+ 1204376 - refactor(backend): main에서 common 모듈 분리
+ 720f144 - feat(gateway): 대기열 및 봇 탐지 필터 추가 및 라우팅 분리
+ 2adc5ab - feat(backend): Gateway Redis Rate Limiting 적용
+ d3306a8 - refactor: consolidate JWT modules to common and fix Gateway dependencies
+ 5ee571b - chore(backend): 빌드 스크립트 및 설정 구조 리팩토링
+ c06f2fa - security(backend): JWT 토큰 보안 취약점 및 Rate Limit NPE 수정
+ 197f7f4 - security(backend): Gateway X-User-Id 헤더 스푸핑 방지
+ ce5d440 - refactor(backend): 불필요한 코드 및 테스트 설정 제거
+ 8c7fa88 - refactor(backend): main에서 auth 의존성 제거 및 Gateway 헤더 방식 전환
+ 337cd17 - refactor(backend): main에서 auth 모듈 분리
+ 435b9d3 - refactor(backend): main에서 common 모듈 분리
+ 4ba67d4 - feat(gateway): 대기열 및 봇 탐지 필터 추가 및 라우팅 분리
+ 48fd111 - feat(backend): Gateway Redis Rate Limiting 적용
+ 2b6f181 - [feat(backend)] 이벤트 목록/상세 조회 API 구현
+ 1e3bd75 - feat(backend): 이벤트 목록/상세 조회 API 개발 - 수정1
+ aea16d7 - feat(backend): 이벤트 목록/상세 조회 API 개발
+ 43eda35 - [feat(backend)] S3 presigned 업로드 API 및 미디어 상태관리 기반 추가
+ f066883 - fix(backend): code assist 반영
+ 94357b1 - feat(backend): S3 presigned 업로드 API 및 미디어 상태관리 기반 추가
+ 8d79953 - feat(backend): add dockerfile
+ 308760c - Merge branch 'develop' of https://github.com/Team-six-sense/On-Race into develop
+ cb0d32c - docs(docs): CONTRIBUTING 및 이슈 템플릿 컨벤션 정비
+ 51cdd8b - [feat(backend)] add gateway jwt filter and security config
+ 44c985d - feat(backend): add gateway jwt filter and security config
+ c97c196 - feat(backend): global cors 설정
+ 3d376cc - [chore(backend)] gateway-main 라우팅 및 env 기반 설정 통합
+ 041cfc6 - chore(backend): add application name
+ 1008916 - chore(backend): gateway-main 라우팅 및 env 기반 설정 통합
+ 5d42d5d - Merge pull request #6 from Team-six-sense/refactor/backend/refactor-exception
+ 80d54f9 - refactor(backend): errorcode 및 exception 개선(리뷰 후 수정-2)
+ 442d7f6 - Merge branch 'main' of https://github.com/Team-six-sense/On-Race into refactor/backend/refactor-exception
+ 08f29e2 - chore: gateway 구축
+ e3d2b88 - refactor: 모듈 분리 준비
+ f36a657 - Merge pull request #10 from Team-six-sense/feat/frontend/initial-setup
+ dc58227 - feat(frontend): Nextjs 프로젝트 초기 설정 및 스켈레톤 코드 구축
+ 0f2e357 - refactor(backend): errorcode 및 exception 개선(리뷰 후 수정-1)
+ 8107469 - refactor(backend): errorcode 및 exception 개선
+ ce2d09a - refactor(backend): 폴더 구조 정리
+ 990ed97 - refactor(backend): 패키지 명, 경로 및 ErrorCode 변경
+ 9d49c5e - refactor(backend): 패키지명, 경로 및 ErrorCode 변경
+ 91fd28e - feat(backend): init backend project
