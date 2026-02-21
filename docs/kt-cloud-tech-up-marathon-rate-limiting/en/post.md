@@ -8,7 +8,7 @@ date: '2026-02-20T10:00:00.000Z'
 thumbnailUrl: '/images/tech-up-image.png'
 ---
 
-This post is an ongoing record detailing the rigorous marathon ticketing platform build during the **kt cloud TECH UP** project. (Previous post: [API Gateway Auth Integration and Header Spoofing Defense](../kt-cloud-tech-up-marathon-gateway-spoofing))
+This post is an ongoing record detailing the rigorous marathon ticketing platform build during the **kt cloud TECH UP** project.)
 
 ---
 

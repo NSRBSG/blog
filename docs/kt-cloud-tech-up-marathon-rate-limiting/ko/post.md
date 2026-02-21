@@ -8,7 +8,7 @@ date: '2026-02-20T10:00:00.000Z'
 thumbnailUrl: '/images/tech-up-image.png'
 ---
 
-본 포스팅은 치열하게 진행 중인 **kt cloud TECH UP 실무 통합 프로젝트** 마라톤 티켓팅 플랫폼 구축기의 이어지는 기록입니다. (이전 글: [API Gateway 인증 통합과 헤더 스푸핑(Spoofing) 방어전](../kt-cloud-tech-up-marathon-gateway-spoofing))
+본 포스팅은 치열하게 진행 중인 **kt cloud TECH UP 실무 통합 프로젝트** 마라톤 티켓팅 플랫폼 구축기의 이어지는 기록입니다. 방어전](../kt-cloud-tech-up-marathon-gateway-spoofing))
 
 ---
 

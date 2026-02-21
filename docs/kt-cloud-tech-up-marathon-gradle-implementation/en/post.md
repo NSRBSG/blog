@@ -8,7 +8,7 @@ date: '2026-02-06T14:30:00.000Z'
 thumbnailUrl: '/images/tech-up-image.png'
 ---
 
-This post is an ongoing record detailing the rigorous marathon ticketing platform build during the **kt cloud TECH UP** intensive project. (Previous post: [kt-cloud-tech-up-marathon-ux-msa](../kt-cloud-tech-up-marathon-ux-msa))
+This post is an ongoing record detailing the rigorous marathon ticketing platform build during the **kt cloud TECH UP** intensive project.)
 
 ---
 

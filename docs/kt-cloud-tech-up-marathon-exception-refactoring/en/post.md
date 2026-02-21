@@ -8,7 +8,7 @@ date: '2026-02-21T11:00:00.000Z'
 thumbnailUrl: '/images/tech-up-image.png'
 ---
 
-This post is a continuation of the intense marathon ticketing platform development journey during the **kt cloud TECH UP** project. (Previous post: [Zero Load Media Handling: S3 Presigned URLs & State Management](../kt-cloud-tech-up-marathon-s3-presigned))
+This post is a continuation of the intense marathon ticketing platform development journey during the **kt cloud TECH UP** project.)
 
 ---
 

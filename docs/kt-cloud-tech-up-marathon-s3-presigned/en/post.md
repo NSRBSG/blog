@@ -8,7 +8,7 @@ date: '2026-02-21T10:00:00.000Z'
 thumbnailUrl: '/images/tech-up-image.png'
 ---
 
-This post chronicles the continuous evolution of our marathon ticketing platform developed during the **kt cloud TECH UP** intensive project. (Previous post: [Controlling the Influx: API Gateway Waiting Room and Redis Rate Limiting](../kt-cloud-tech-up-marathon-rate-limiting))
+This post chronicles the continuous evolution of our marathon ticketing platform developed during the **kt cloud TECH UP** intensive project.)
 
 ---
 

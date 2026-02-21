@@ -8,7 +8,7 @@ date: '2026-02-21T11:00:00.000Z'
 thumbnailUrl: '/images/tech-up-image.png'
 ---
 
-본 포스팅은 수많은 협업과 트러블슈팅이 오갔던 **kt cloud TECH UP 실무 통합 프로젝트** 마라톤 티켓팅 플랫폼 구축기의 이어지는 기록입니다. (이전 글: [서버 부하 없는 대용량 미디어 처리: S3 Presigned URL과 상태 관리](../kt-cloud-tech-up-marathon-s3-presigned))
+본 포스팅은 수많은 협업과 트러블슈팅이 오갔던 **kt cloud TECH UP 실무 통합 프로젝트** 마라톤 티켓팅 플랫폼 구축기의 이어지는 기록입니다.)
 
 ---
 
