@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { Locale } from '../i18n/config';
@@ -10,19 +10,22 @@ import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 
-function getPostNames() {
-  return fs.readdirSync(path.join(process.cwd(), 'docs'));
+async function getPostNames() {
+  return await fs.readdir(path.join(process.cwd(), 'docs'));
 }
 
-function extractLocalePostNames(postNames: string[], locale: Locale) {
-  return postNames.filter((name) => {
-    const locales = fs.readdirSync(path.join(process.cwd(), 'docs', name));
-    return locales.includes(locale);
-  });
+async function extractLocalePostNames(postNames: string[], locale: Locale) {
+  const mask = await Promise.all(
+    postNames.map(async (name) => {
+      const locales = await fs.readdir(path.join(process.cwd(), 'docs', name));
+      return locales.includes(locale);
+    })
+  );
+  return postNames.filter((_, i) => mask[i]);
 }
 
-function extractPostMetadata(name: string, locale: Locale) {
-  const file = fs.readFileSync(
+async function extractPostMetadata(name: string, locale: Locale) {
+  const file = await fs.readFile(
     path.join(process.cwd(), 'docs', name, locale, 'post.md'),
     'utf-8'
   );
@@ -30,21 +33,25 @@ function extractPostMetadata(name: string, locale: Locale) {
   return { ...data, slug: name } as PostMetadata;
 }
 
-export function getPosts(postsPerPage: number, page: number, locale: Locale) {
-  const localePostNames = extractLocalePostNames(getPostNames(), locale);
+export async function getPosts(postsPerPage: number, page: number, locale: Locale) {
+  const postNames = await getPostNames();
+  const localePostNames = await extractLocalePostNames(postNames, locale);
   const totalLocalePostsCount = localePostNames.length;
 
-  const localePosts = localePostNames
-    .map((name) => extractPostMetadata(name, locale))
+  const localePostsUnsorted = await Promise.all(
+    localePostNames.map((name) => extractPostMetadata(name, locale))
+  );
+
+  const localePosts = localePostsUnsorted
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice((page - 1) * postsPerPage, page * postsPerPage);
 
   return { posts: localePosts, totalPostsCount: totalLocalePostsCount };
 }
 
-export function getPostMarkdown(slug: string, locale: Locale) {
+export async function getPostMarkdown(slug: string, locale: Locale) {
   try {
-    const file = fs.readFileSync(
+    const file = await fs.readFile(
       path.join(process.cwd(), 'docs', slug, locale, 'post.md'),
       'utf-8'
     );
@@ -72,14 +79,15 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   return String(result);
 }
 
-export function getAllPostForSitemap() {
-  const postNames = getPostNames();
+export async function getAllPostForSitemap() {
+  const postNames = await getPostNames();
 
-  const allPosts = postNames.map((name) => {
-    const locales = fs.readdirSync(path.join(process.cwd(), 'docs', name));
-
-    return { [name]: locales };
-  });
+  const allPosts = await Promise.all(
+    postNames.map(async (name) => {
+      const locales = await fs.readdir(path.join(process.cwd(), 'docs', name));
+      return { [name]: locales };
+    })
+  );
 
   return allPosts;
 }

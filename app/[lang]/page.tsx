@@ -22,13 +22,11 @@ export async function generateMetadata({
 
   return {
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}${
-        currentPage > 1 ? `?page=${currentPage}` : ''
-      }`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}${currentPage > 1 ? `?page=${currentPage}` : ''
+        }`,
       languages: locales.reduce((acc, locale) => {
-        acc[locale] = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}${
-          currentPage > 1 ? `?page=${currentPage}` : ''
-        }`;
+        acc[locale] = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}${currentPage > 1 ? `?page=${currentPage}` : ''
+          }`;
         return acc;
       }, {} as Record<Locale, string>),
     },
@@ -49,7 +47,7 @@ export default async function Page({
 
   if (!dictionary) return redirect('/');
 
-  const { posts, totalPostsCount } = getPosts(
+  const { posts, totalPostsCount } = await getPosts(
     postsPerPage,
     Number(page ?? 1),
     lang

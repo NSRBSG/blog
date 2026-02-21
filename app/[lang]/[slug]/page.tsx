@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { lang, slug } = await params;
 
   const dictionary = await getDictionary(lang);
-  const post = getPostMarkdown(slug, lang);
+  const post = await getPostMarkdown(slug, lang);
 
   if (!dictionary || !post) return {};
 
@@ -85,9 +85,9 @@ export default async function Page({
   const { lang, slug } = await params;
 
   const dictionary = await getDictionary(lang);
-  const post = getPostMarkdown(slug, lang);
+  const post = await getPostMarkdown(slug, lang);
 
-  if (!dictionary || !post) redirect(`/${lang}`);
+  if (!dictionary || !post) return redirect(`/${lang}`);
 
   const { data: metadata, content: markdown } = post;
 
