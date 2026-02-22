@@ -60,7 +60,9 @@ export async function generateMetadata({
       languages: locales.reduce((acc, locale) => {
         acc[locale] = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}`;
         return acc;
-      }, {} as Record<Locale, string>),
+      }, {
+        'x-default': `${process.env.NEXT_PUBLIC_BASE_URL}`,
+      } as Record<string, string>),
     },
 
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),

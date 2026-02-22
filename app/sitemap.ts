@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           ko: `${process.env.NEXT_PUBLIC_BASE_URL}/ko`,
           en: `${process.env.NEXT_PUBLIC_BASE_URL}/en`,
+          'x-default': `${process.env.NEXT_PUBLIC_BASE_URL}`,
         },
       },
     },
@@ -24,7 +25,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               [locale]: `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/${Object.keys(slug)[0]
                 }`,
             }),
-            {}
+            {
+              'x-default': `${process.env.NEXT_PUBLIC_BASE_URL}/${Object.keys(slug)[0]}`,
+            } as Record<string, string>
           ),
         },
       };
