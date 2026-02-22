@@ -63,6 +63,9 @@ export async function generateMetadata({
       }, {
         'x-default': `${process.env.NEXT_PUBLIC_BASE_URL}`,
       } as Record<string, string>),
+      types: {
+        'application/rss+xml': `${process.env.NEXT_PUBLIC_BASE_URL}/rss.xml`,
+      },
     },
 
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
