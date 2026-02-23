@@ -63,7 +63,9 @@ export async function generateMetadata({
       languages: locales.reduce((acc, locale) => {
         acc[locale] = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/${slug}`;
         return acc;
-      }, {} as Record<Locale, string>),
+      }, {
+        'x-default': `${process.env.NEXT_PUBLIC_BASE_URL}/${slug}`,
+      } as Record<string, string>),
     },
 
     category: postMetadata.categories[0],
